@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>carousel</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="animate.js"></script>
+</head>
+<body>
+	<div id="cover">
+        <p class="mi">用户名</p>&nbsp;<input type="text" name="用户名" value="" id="sev"/>
+        <div class="ni"></div>
+        <p class="mi">密&nbsp;&nbsp;&nbsp;码</p>&nbsp;<input type="password" name="密码"  value="" id="ten"/>
+        <div class="ni"></div>
+        <input type="button" name="登录"  value="立即登录" onclick="cover()"/>
+    </div>
+    <div class="th">
+        <div class="nav">
+            <ul class="clear">
+                <img src="imgs/logo.jpg" alt="" class="one">
+                <li><a href="">帮助</a></li>
+                <li><a href="">酒店预订</a></li>
+                <li><a href="">餐饮推荐</a></li>
+                <li><a href="">热门路线</a></li>
+                <li><a href="">首页</a></li>
+            </ul>
+            </div>
+            <div class="kuang">
+                <input type="text" class="fore" placeholder="输入关键词" />
+                <input type="text" class="submit">
+            </div>
+         <div class="nav2">   
+            <div class="box" id="box">
+            	<div class="slider" id="slider">
+            		<div class="slide"><img src="imgs/banner05.jpg" alt=""></div>
+            		<div class="slide"><img src="imgs/banner01.jpg" alt=""></div>
+            		<div class="slide"><img src="imgs/banner02.jpg" alt=""></div>
+            		<div class="slide"><img src="imgs/banner03.jpg" alt=""></div>
+            		<div class="slide"><img src="imgs/banner04.jpg" alt=""></div>
+            		<div class="slide"><img src="imgs/banner05.jpg" alt=""></div>
+            		<div class="slide"><img src="imgs/banner01.jpg" alt=""></div>
+            	</div>
+            	<span id="left"></span>
+            	<span id="right"></span>
+            	<ul class="nav1" id="nav">
+            		<li class="active"></li>
+            		<li></li>
+            		<li></li>
+            		<li></li>
+            		<li></li>
+            	</ul>
+            </div>
+        </div>
+
+
+			<div class="two">  
+                <img src="imgs/jing1.jpg" alt="">
+            </div>
+            <div class="three">
+                <p class="eight">天河山</p>
+                <br>
+                <p class="fifth">牛郎织女故事的发源地</p>
+                <br>
+                <p>天河山，位于邢台市西侧，距离市区车程约70公里，是一处山清水秀的自然风景区。山间可以参观很多以牛郎织女的爱情故事为主题的景点，因此也被称为“中国爱情山”。游客来此可以在树林溪水之间登山漫步，观赏反映爱情文化的特色景点，还可以体验景区内的拓展娱乐和刺激的漂流活动</p>
+            </div> 
+            <div class="fore">  
+                <img src="imgs/jing2.jpg" alt="">
+            </div>
+            <div class="five">
+                <p class="eight">天梯山景区</p>
+                <br>
+                <p class="fifth">郊游登山的好去处</p>
+                <br>
+                <p>天梯山景区，位于邢台市西郊，天梯山地貌险峻，石壁陡峭，有一条陡峭的石阶沿山而上，因此得名，这条石阶现在就是景区内的爬山步道。步道间有悬空桥、吊桥惊险刺激，两旁的山体间则是几十个形状各异的天然山洞，山洞里有神像、佛像、石刻等历史古迹可以参观。在天梯山脚下还有一个地下水道金水洞，可以乘船进入欣赏溶洞美景</p>
+            </div>
+            <div class="six">
+                <img src="imgs/jing3.jpg" alt="">
+            </div>
+            <div class="seven">
+                <p class="eight">桃花源风景区</p>
+                <br>
+                <p class="fifth">休闲娱乐胜地</p>
+                <br>
+                <p>桃花源风景区，是集青山秀水和园林建筑为一体的特色风景区。沙河“大裂峡”堪称全国最美的一线天，V形峡谷、Ω形峡谷，经有关专家鉴定为典型的地质奇观，学术及观赏价值在全国领先。景区景观：沙河大裂峡、巨石长廊、曲阳石雕双层凉亭、仿古炭化木亭、悬崖飞瀑、桃花源大瀑布、悬空玻璃观光台等，雄壮、细腻、典雅、刺激，各具特色，雅俗共赏</p>
+            </div>
+            <div class="tou">
+                <div class="first"><p> 天河山<span>￥420</span>/人</p></div>
+            </div>
+            <div class="xin">
+                <div class="second"><p>天梯山景区 <span>￥370</span>/人</p></div>
+            </div>
+            <div class="ma">
+                <div class="third"><p>桃花源风景区 <span>￥450</span>/人</p></div>
+            </div>
+            <div class="zi">
+                <div class="forth"><p>苏ICP备000号、2014-2017版权所有</p></div>
+            </div>
+        </div>
+	<script>
+		function cover(){
+            var c = document.getElementById("cover");
+            var q = document.getElementsByClassName("th")[0];            
+            if(document.getElementById("sev").value!=""&&document.getElementById("ten").value!=""){
+                c.style.display = "none";
+                q.style.display = "block";
+            }
+            else{
+                alert("用户名和密码不能为空！")
+            }
+        }
+		var box = document.getElementById('box');
+		var oNavlist = document.getElementById('nav').children;
+		var slider = document.getElementById('slider');
+		var left = document.getElementById('left');
+		var right = document.getElementById('right');
+		var index = 1;
+		var timer;
+		var isMoving = false;
+		box.onmouseover = function(){
+			animate(left,{opacity:50})
+			animate(right,{opacity:50})
+			clearInterval(timer)
+		}
+		box.onmouseout = function(){
+			animate(left,{opacity:0})
+			animate(right,{opacity:0})
+			timer = setInterval(next, 3000);
+		}
+		right.onclick = next;
+		left.onclick = prev;
+		for( var i=0; i<oNavlist.length; i++ ){
+			oNavlist[i].index = i;
+			oNavlist[i].onclick = function(){
+				index = this.index+1;
+				navmove();
+				animate(slider,{left:-1200*index});
+			}
+		}
+		function next(){
+			if(isMoving){
+				return;
+			}
+			isMoving = true;
+			index++;
+			navmove();
+			animate(slider,{left:-1200*index},function(){
+				if(index==6){
+					slider.style.left = '-1200px';
+					index = 1;
+				}
+				isMoving = false;
+			});
+		}
+		function prev(){
+			if(isMoving){
+				return;
+			}
+			isMoving = true;
+			index--;
+			navmove();
+			animate(slider,{left:-1200*index},function(){
+				if(index==0){
+					slider.style.left = '-6000px';
+					index = 5;
+				}
+				isMoving = false;
+			});
+		}
+		function navmove(){
+			for( var i=0; i<oNavlist.length; i++ ){
+				oNavlist[i].className = "";
+			}
+			if(index >5 ){
+				oNavlist[0].className = "active";
+			}else if(index<=0){
+				oNavlist[4].className = "active";
+			}else {
+				oNavlist[index-1].className = "active";
+			}
+		}
+		timer = setInterval(next, 3000);
+	</script>
+</body>
+</html>
